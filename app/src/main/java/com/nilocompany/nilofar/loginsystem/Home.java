@@ -13,20 +13,23 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Button btnChangePassword=findViewById(R.id.btnChangePassword);
+
         Button btnLogOut=findViewById(R.id.btnLogOut);
         btnChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent=new Intent(getBaseContext(),ChangePassword.class);
-                startActivity(myIntent);
-            }
+            Intent myIntent=new Intent(getBaseContext(),ChangePassword.class);
+            startActivity(myIntent);
+        }
         });
+
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent=new Intent(getBaseContext(),Login.class);
-                startActivity(myIntent);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
             }
         });
+
     }
 }
